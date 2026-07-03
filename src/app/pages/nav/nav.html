@@ -1,0 +1,39 @@
+<!-- Conteneur de la grille qui va organiser les cartes -->
+
+<div class="games-grid">
+
+  @for (game of games(); track game.id) {
+
+    <mat-card class="game-card">
+
+      <img mat-card-image [src]="game.background_image">
+
+      <mat-card-content>
+        <h3 class="title">{{ game.name }}</h3>
+        <p>⭐ {{ game.rating }}</p>
+      </mat-card-content>
+
+    </mat-card>
+
+  }
+
+</div>
+
+<!-- <div class="games-grid"> -->
+  <!-- Nouvelle syntaxe Angular (Angular 17+) pour boucler sur les données -->
+  <!-- @for(game of games(); track game.id) { -->
+    <!-- Carte Angular Material représentant un jeu -->
+    <!-- <mat-card class="game-card" appearance="outlined">  
+      <mat-card-header>
+        <mat-card-title>{{ game.name }}</mat-card-title>
+      </mat-card-header> -->
+      
+    <!-- Image du jeu (bannière / cover) -->
+    <!-- [src] = binding Angular pour injecter dynamiquement l'URL -->
+    <!-- <img mat-card-image  [src]="game.background_image">
+    <mat-card-content>
+      <p>⭐ {{ game.rating }}</p>
+    </mat-card-content>
+  </mat-card>
+  }
+</div> -->
