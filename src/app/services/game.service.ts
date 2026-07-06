@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { GamesResponse } from '../pages/nav/nav';
+import { GamesResponse } from '../pages/gamelist/gamelist';
 /**
  * Service responsable de la communication avec l'API RAWG
  * Centralise les appels HTTP liés aux jeux

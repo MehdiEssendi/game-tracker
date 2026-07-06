@@ -25,11 +25,11 @@ export interface GamesResponse {
   results: Game[];
 }
 @Component({
-  selector: 'app-nav',
+  selector: 'app-gamelist',
   imports: [CommonModule, MatMenuModule, MatCardModule, MatButtonModule],
   standalone: true,
-  templateUrl: './nav.html',
-  styleUrl: './nav.scss',
+  templateUrl: './gamelist.html',
+  styleUrl: './gamelist.scss',
 })
 export class Nav {
   
