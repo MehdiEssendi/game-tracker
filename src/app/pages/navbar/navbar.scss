@@ -1,0 +1,19 @@
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* améliore l'espacement des boutons */
+a[mat-button] {
+  margin-right: 8px;
+}
