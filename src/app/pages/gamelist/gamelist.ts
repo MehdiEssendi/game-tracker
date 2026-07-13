@@ -31,7 +31,7 @@ export interface GamesResponse {
   templateUrl: './gamelist.html',
   styleUrl: './gamelist.scss',
 })
-export class Nav {
+export class GameList {
   
   /**
    * Liste des jeux affichés dans le template
