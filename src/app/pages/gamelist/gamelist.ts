@@ -3,30 +3,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { GameService } from '../../services/game.service';
 import { CommonModule } from '@angular/common';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule} from '@angular/material/card';
+import { RouterLink } from '@angular/router';
+import { Game } from '../../models/game.model';
 
-/**
- * Interface représentant un jeu retourné par l'API RAWG
- * Elle permet de typer les données au lieu d'utiliser "any"
- */
-export interface Game {
-  id: number;
-  name: string;
-  background_image: string;
-  rating: number;
-}
-/**
- * Interface représentant la réponse globale de l'API RAWG
- */
-export interface GamesResponse {
-  count: number;
-  next: string;
-  previous: string | null;
-  results: Game[];
-}
+
 @Component({
   selector: 'app-gamelist',
-  imports: [CommonModule, MatMenuModule, MatCardModule, MatButtonModule],
+  imports: [CommonModule, MatMenuModule, MatCardModule, MatButtonModule, RouterLink],
   standalone: true,
   templateUrl: './gamelist.html',
   styleUrl: './gamelist.scss',
@@ -36,7 +20,7 @@ export class GameList {
   /**
    * Liste des jeux affichés dans le template
    */
-  games = signal<any[]>([]);  
+  games = signal<Game[]>([]);  
   private gameService = inject(GameService);
   // private cdr = inject(ChangeDetectorRef);
   constructor() {
@@ -52,7 +36,7 @@ export class GameList {
       next: (data) => {
         this.games.set(data.results);
         // this.cdr.detectChanges(); // force refresh UI
-        console.log(this.games);
+        console.log(this.games());
       },
       // Cas erreur (API, réseau, clé invalide...)
       error: (err) => {

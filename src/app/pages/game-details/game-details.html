@@ -1,0 +1,33 @@
+<!-- @if(game){
+    <h1>{{ game.name }}</h1>
+
+    <img 
+        [src]="game.background_image"
+        width="500"
+    >
+
+    <p>{{ game.description_raw }}</p>
+
+    <p>
+        Release date: {{ game.released }}
+    </p>
+
+    <p>
+        Rating: ⭐ {{ game.rating }} 
+    </p>
+} -->
+
+@if(game(); as game) {
+
+  <h1>{{ game.name }}</h1>
+
+  <img [src]="game.background_image">
+
+  <p>{{ game.description_raw }}</p>
+
+}
+@else {
+
+  <p>Loading...</p>
+
+}
