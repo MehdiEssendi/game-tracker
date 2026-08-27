@@ -14,6 +14,13 @@
     <mat-card-content>
       <h3 class="title">{{ game.name }}</h3>
       <p>⭐ {{ game.rating }}</p>
+
+    <button
+      mat-icon-button
+      (click)="addToFavorites(game); $event.stopPropagation()"
+    >
+      ❤️
+    </button>
     </mat-card-content>
     
   </mat-card>

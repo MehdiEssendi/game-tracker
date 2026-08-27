@@ -1,1 +1,32 @@
-<p>favorites works!</p>
+@for (game of favorites(); track game.id) {
+
+
+  <mat-card class="game-card">
+
+    <img
+      mat-card-image
+      [src]="game.background_image"
+    >
+
+    <mat-card-content>
+
+      <h3>{{ game.name }}</h3>
+
+      <p>⭐ {{ game.rating }}</p>
+
+      <button
+        mat-button
+        (click)="removeFavorite(game.id)"
+      >
+        Remove from favorites
+      </button>
+
+    </mat-card-content>
+
+  </mat-card>
+
+} @empty {
+
+  <p>You don't have any favorite games yet.</p>
+
+}

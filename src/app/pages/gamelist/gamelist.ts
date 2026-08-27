@@ -6,7 +6,8 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule} from '@angular/material/card';
 import { RouterLink } from '@angular/router';
 import { Game } from '../../models/game.model';
-
+import { FavoriteService } from '../../services/favorite.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-gamelist',
@@ -23,6 +24,8 @@ export class GameList {
   games = signal<Game[]>([]);  
   private gameService = inject(GameService);
   // private cdr = inject(ChangeDetectorRef);
+  private favoriteService = inject(FavoriteService);
+  private snackBar = inject(MatSnackBar);
   constructor() {
     this.loadGames();
   }
@@ -43,5 +46,25 @@ export class GameList {
       console.error(err);
       }
     });
+  }
+  addToFavorites(game: Game): void {
+    const added = this.favoriteService.addFavorite(game);
+    if(added){
+      this.snackBar.open(
+        `${game.name} has been added to your favorites`,
+        'Close',
+        {
+          duration: 2000
+        }
+      );
+    } else {
+      this.snackBar.open(
+        `${game.name} is already in your favorites`,
+        'Close',
+        {
+          duration: 2000
+        }
+      );
+    }
   }
 }
